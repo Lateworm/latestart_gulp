@@ -1,0 +1,27 @@
+/* general elements */
+
+	body {
+		font-family: sans-serif;
+		color: #2d2d2d;
+		font-size: 14px;
+	}
+
+	/* end general elements */
+/* general classes */
+
+	
+	/* end general classes */
+/* media query - tablet */
+
+	@media all and (min-width: 1240px) {
+
+	}
+
+	/* end media query - tablet */
+/* media query - desktop */
+
+	@media all and (min-width: 1240px) {
+
+	}
+
+	/* end media query - desktop */
