@@ -1,0 +1,8 @@
+// Imported but not included in the stylesheet
+@import 'variables';
+@import 'mixins';
+
+// compiled in teh stylesheet
+@import 'reset';
+@import 'globals'; //styles that are used throughout the entire project
+@import 'content';
