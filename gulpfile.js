@@ -5,7 +5,7 @@ var gulp 				= require('gulp'),
 		rename 			= require('gulp-rename'), 
 		eslint			= require('gulp-eslint'), // lint JavaScript
 
-		sass 				= require('gulp-sass'), // compile sass files (in SCSS syntax)
+		sass				= require('gulp-sass'), // compile sass files (in SCSS syntax)
     autoprefixer = require('gulp-autoprefixer'), // add vendor prefixes
 		cssnano 		= require('gulp-cssnano'), // minify
 		prettyError = require('gulp-prettyerror'); 
@@ -30,27 +30,27 @@ gulp.task('buildScripts', ['lintScripts'], function(){
 		.pipe(gulp.dest('./build/js'))
 });
 	
-gulp.task('browser-sync', function() {
-    browserSync.init({
-			server: {
-				baseDir: "./"
-				}
-			});
-		gulp.watch(['index.html', 'build/css/*.css', 'js/*.js'])
-		.on('change', browserSync.reload);
-});
-	
 gulp.task('buildScss', function() {
-	 gulp.src('./scss/style.scss')
-	 		.pipe(prettyError()) // Sass error handler
-      .pipe(sass())
-      .pipe(autoprefixer({
-         browsers: ['last 2 versions']
-      }))
-      .pipe(gulp.dest('./build/css')) // helpful so we can see the compiled code
-      .pipe(cssnano())
-      .pipe(rename('style.min.css'))
-      .pipe(gulp.dest('./build/css')); // final production version
+	gulp.src('./scss/style.scss')
+		.pipe(prettyError()) // Sass error handler
+		.pipe(sass()) // compile SCSS
+		.pipe(autoprefixer({
+				browsers: ['last 2 versions']
+		}))
+		.pipe(gulp.dest('./build/css')) // helpful so we can see the compiled code
+		.pipe(cssnano())
+		.pipe(rename('style.min.css'))
+		.pipe(gulp.dest('./build/css')); // final production version
+});
+		
+gulp.task('browser-sync', function() {
+	browserSync.init({
+		server: {
+			baseDir: "./"
+			}
+		});
+	gulp.watch(['index.html', 'build/css/*.css', 'js/*.js'])
+	.on('change', browserSync.reload);
 });
 	
 // Modify our default task method by passing an array of task names
